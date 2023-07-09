@@ -1,0 +1,179 @@
+html, body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: #333;
+}
+
+h1{
+  font-size: 30px;
+  padding-top: 60px;
+  padding-left: 60px;
+  font-weight: 700;
+  color: #333;
+  text-align: left;
+}
+
+h2{
+  font-size: 20px;
+  font-weight: 500;
+  padding-bottom: 10px;
+  color: #438EF2;
+  text-align: left;
+}
+
+h3{
+  font-size: 20px;
+  font-weight: 500;
+  color: #438EF2;
+  margin: 0;
+}
+
+h4{
+  font-size: 20px;
+  font-weight: 500;
+  color: #333;
+}
+
+h5{
+  font-size: 15px;
+  font-weight: 400;
+  color: #333;
+}
+
+.form-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow columns to wrap onto a new line */
+}
+
+.column {
+  flex: 1; /* Adjust the flex value as needed */
+  flex-shrink: 1;
+  padding: 20px; /* Add padding values as needed */
+  width: calc(25%); /* Adjust the width calculation to accommodate for padding */
+  box-sizing: border-box; /* Include padding in the width calculation */
+  float:left;
+}
+
+.column-wrapper {
+  padding: 30px; /* Add padding values as needed */
+  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.1); /* Add the drop shadow effect */
+  border-radius: 10px;
+}
+
+.column h2 {
+  margin-top: 0;
+}
+
+.column label,
+.column input {
+  display: block;
+}
+
+.form_id {
+  /* Modify the common styles for all labels with the class 'form_id' */
+  font-size: 13px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.entire_form{
+  margin: 60px;
+}
+
+.form-input {
+  border: none;
+  background: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  width: 100%;
+  outline: none;
+}
+
+#input_box {
+  width: 90%;
+  padding: 7px;
+  border: 1px solid #d2d2d2;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-prefix {
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 5px;
+}
+
+.submit_button {
+  /* Apply desired styles to the button container */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.submit_button input[type="submit"] {
+  /* Apply desired styles to the button */
+  background-color: #438EF2;
+  color: white;
+  padding: 20px 60px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.chart-container {
+  /* Add your CSS styles for the chart container here */
+  width: 100%;
+  max-width: 800px;
+  padding-left: 60px;
+  display: inline-block;
+  /* Add other custom styles as needed */
+}
+
+.return-box {
+  padding: 30px;
+}
+
+.return-wrapper {
+  margin: 20px;
+  width: calc(30%);
+  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.1); /* Add the drop shadow effect */
+  border-radius: 10px;
+  align-items:right;
+}
+
+.metrics {
+  margin: 15px;
+  padding: 0px; /* Add padding values as needed */
+  width: calc(25%);
+  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.1); /* Add the drop shadow effect */
+  border-radius: 10px;
+}
+
+.line-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: -30px;
+}
+
+.equity-value {
+  margin-left: auto;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.returnContainer{
+  width: 1200px;
+  display: inline-block;
+}

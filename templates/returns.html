@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+    </head>
+
+    <div class="entire_form">
+        <div class="return-wrapper">
+          <div class="return-box">
+            <h3>Project Returns</h3>
+            
+            <div class="line-container">
+                <h5 class="label" style="font-weight: bold; font-size: 20px;">Equity Multiple</h5>
+                <h4 class="equity-value" style="font-weight: bold; font-size: 20px;">{{ project_returns[3][0] }}</h4>
+            </div>
+
+            <div class="line-container">
+                <h5 class="label">IRR</h5>
+                <h4 class="equity-value">{{ project_returns[0][0] }}</h4>
+            </div>
+
+            <div class="line-container">
+                <h5 class="label">Cash-on-Cash Return</h5>
+                <h4 class="equity-value">{{ project_returns[1][0] }}</h4>
+            </div>
+
+            <div class="line-container">
+                <h5 class="label">Annualized Return</h5>
+                <h4 class="equity-value">{{ project_returns[2][0] }}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+</html>

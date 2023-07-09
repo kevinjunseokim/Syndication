@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+    </head>
+
+    <div class="entire_form">
+        <div class="return-wrapper">
+          <div class="return-box">
+            <h3>Investor Returns</h3>
+            <h5 style="color: #438EF2; margin-top: 10px; margin-bottom: 0px">on ${{ request.form.get('sample') }} investment</h5>
+            
+            <div class="line-container">
+                <h5 class="label">Cashflow</h5>
+                <h4 class="equity-value">{{ sample_returns[0][0] }}</h4>
+            </div>
+
+            <div class="line-container">
+                <h5 class="label">Refi/Sale Profits</h5>
+                <h4 class="equity-value">{{ sample_returns[2][0] }}</h4>
+            </div>
+
+            <div class="line-container">
+                <h5 class="label">Member Capital Return</h5>
+                <h4 class="equity-value">{{ sample_returns[3][0] }}</h4>
+            </div>
+
+            <div class="line-container">
+                <h5 class="label" style="font-weight: bold; font-size: 20px;">Total ROI</h5>
+                <h4 class="equity-value" style="font-weight: bold; font-size: 20px;">{{ sample_returns[5][0] }}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+</html>

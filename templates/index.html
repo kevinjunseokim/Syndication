@@ -1,35 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+  
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet">
   </head>
+
   <body>
     <div id="app">
       <h1>Real Estate Syndication Analyzer</h1>
       <h3 style="padding-left: 60px;">PROJECT OVERVIEW</h3>
-
-      <div id="chartContainer" class="chart-container">
-        {% include 'chart.html' %}
+      <div class="content-container">
+        <div id="chartContainer" class="chart-container">
+          {% include 'chart.html' %}
+          <div>
+            <canvas id="myChart1"></canvas>
+          </div>
+          <div>
+            <canvas id="myChart3"></canvas>
+          </div>
+        </div>
+        <div id="project_metrics" class="project_metrics_class">
+          <div id="returnContainer" class="returnContainer">
+            {% include 'returns.html' %}
+          </div>
+          <div id="returnContainer" class="returnContainer">
+            {% include 'stack.html' %}
+          </div>
+        </div>
       </div>
-
-      <div id="returnContainer" class="returnContainer">
-        {% include 'returns.html' %}
-      </div>
-
       <div id="returnContainer" class="returnContainer">
         {% include 'investor.html' %}
       </div>
-
-      <div id="returnContainer" class="returnContainer">
-        {% include 'stack.html' %}
-      </div>
-
       <div id="formContainer">
         {% include 'form.html' %}
       </div>
+    </div>
+
+    <div>
+      <canvas id="myChart2"></canvas>
     </div>
   </body>
 </html>

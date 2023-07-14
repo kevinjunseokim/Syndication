@@ -1,89 +1,231 @@
 <!doctype html>
 <html lang="en">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://www.gstatic.com/charts/loader.js"></script>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+  </head>
+  <body>
+    <script>
+      google.charts.load('current', {
+        'packages': ['corechart', 'bar']
+      });
+      google.charts.setOnLoadCallback(initCharts);
 
-<div>
-  <canvas id="myChart"></canvas>
-</div>
+      function initCharts() {
+        var chart1URL = "https://docs.google.com/spreadsheets/d/12JLdYDanLx3GfH9EqBg5aPerH8INsScCYrQaaunVDNc/gviz/tq?gid=1007903057&headers=1";
+        var chart2URL = "https://docs.google.com/spreadsheets/d/1FkW0QK-ASQlCBJgEhe-LRtKPH55P2ZmV-X1A8AKopZs/gviz/tq?gid=1007903057&headers=1";
+        var chart3URL = "https://docs.google.com/spreadsheets/d/1xihwrUnjN0QTx-9A48Z2SfsZGBSvgmMY2lWb6k-wiw8/gviz/tq?gid=1007903057&headers=1";
 
-<script>
-  google.charts.load('current', {
-    'packages': ['corechart', 'bar']
-  });
-  google.charts.setOnLoadCallback(initChart);
+        var chart1Query = new google.visualization.Query(chart1URL);
+        var chart2Query = new google.visualization.Query(chart2URL);
+        var chart3Query = new google.visualization.Query(chart3URL);
 
-  function initChart() {
-    URL = "https://docs.google.com/spreadsheets/d/12JLdYDanLx3GfH9EqBg5aPerH8INsScCYrQaaunVDNc/gviz/tq?gid=1007903057&headers=1";
-    var query = new google.visualization.Query(URL);
-    query.setQuery('select *');
-    query.send(function(response) {
-      handleQueryResponse(response);
-    });
-  }
+        chart1Query.setQuery('select *');
+        chart2Query.setQuery('select *');
+        chart3Query.setQuery('select *');
 
-  function handleQueryResponse(response) {
-    var data = response.getDataTable();
-    var columns = data.getNumberOfColumns();
-    var rows = data.getNumberOfRows();
-    console.log(data.toJSON());
+        chart1Query.send(function (chart1Response) {
+          handleQueryResponse(chart1Response, "myChart1", 'bar');
+        });
 
-    const colors = ['rgb(54, 162, 235)', 'rgb(255, 99, 132)', 'rgb(75, 192, 192)', 'rgb(255, 206, 86)', 'rgb(153, 102, 255)'];
-    dataj = JSON.parse(data.toJSON());
-    console.log(dataj.cols[0].label);
-    const labels = [];
-    for (c = 1; c < dataj.cols.length; c++) {
-      if (dataj.cols[c].label != "") {
-        labels.push(dataj.cols[c].label);
+        chart2Query.send(function (chart2Response) {
+          handleQueryResponse2(chart2Response, "myChart2", 'pie');
+        });
+
+        chart3Query.send(function (chart3Response) {
+          handleQueryResponse3(chart3Response, "myChart3", 'bar');
+        });
       }
 
-    }
-    console.log(labels);
-    const datasets = [];
-    for (i = 0; i < dataj.rows.length; i++) {
-      const series_data = [];
-      for (j = 1; j < dataj.rows[i].c.length; j++) {
-        if (dataj.rows[i].c[j] != null) {
-          if (dataj.rows[i].c[j].v != null) {
-            series_data.push(dataj.rows[i].c[j].v);
-          } else {
-            series_data.push(0);
+      function handleQueryResponse(response, chartId, chartType) {
+        var data = response.getDataTable();
+        var columns = data.getNumberOfColumns();
+        var rows = data.getNumberOfRows();
+        console.log(data.toJSON());
+
+        const colors = ['rgb(54, 162, 235)', 'rgb(255, 99, 132)', 'rgb(75, 192, 192)', 'rgb(255, 206, 86)', 'rgb(153, 102, 255)'];
+        dataj = JSON.parse(data.toJSON());
+        console.log(dataj.cols[0].label);
+        const labels = [];
+        for (c = 1; c < dataj.cols.length; c++) {
+          if (dataj.cols[c].label != "") {
+            labels.push(dataj.cols[c].label);
           }
         }
-
-      }
-      var dataset = {
-        label: dataj.rows[i].c[0].v,
-        backgroundColor: colors[i],
-        borderColor: colors[i],
-        data: series_data
-      }
-
-      datasets.push(dataset);
-
-    }
-    console.log(datasets);
-
-    const chartdata = {
-      labels: labels,
-      datasets: datasets
-    };
-    var canvas = document.getElementById("myChart");
-    var setup = {
-      type: 'line',
-      data: chartdata,
-      options: {
-        plugins: {
-          title: {
-            display: true,
-            text: dataj.cols[0].label
+        console.log(labels);
+        const datasets = [];
+        for (i = 0; i < dataj.rows.length; i++) {
+          const series_data = [];
+          for (j = 1; j < dataj.rows[i].c.length; j++) {
+            if (dataj.rows[i].c[j] != null) {
+              if (dataj.rows[i].c[j].v != null) {
+                series_data.push(dataj.rows[i].c[j].v);
+              } else {
+                series_data.push(0);
+              }
+            }
           }
-        },
-        responsive: true,
-      }
-    }
-    chart = new Chart(canvas, setup);
+          var dataset = {
+            label: dataj.rows[i].c[0].v,
+            backgroundColor: colors[i],
+            borderColor: colors[i],
+            data: series_data
+          }
+          datasets.push(dataset);
+        }
+        console.log(datasets);
 
-  }
-</script>
+        const chartdata = {
+          labels: labels,
+          datasets: datasets
+        };
+
+        var canvas = document.getElementById(chartId);
+        var setup = {
+          type: chartType,
+          data: chartdata,
+          options: {
+            plugins: {
+              title: {
+                display: true,
+                text: dataj.cols[0].label
+              }
+            },
+            responsive: true,
+          }
+        };
+        chart = new Chart(canvas, setup);
+      }
+
+      function handleQueryResponse2(response, chartId, chartType) {
+        var data = response.getDataTable();
+        var columns = data.getNumberOfColumns();
+        var rows = data.getNumberOfRows();
+        console.log(data.toJSON());
+
+        const colors = ['rgb(54, 162, 235)', 'rgb(255, 99, 132)', 'rgb(75, 192, 192)', 'rgb(255, 206, 86)', 'rgb(153, 102, 255)'];
+        dataj = JSON.parse(data.toJSON());
+        console.log(dataj.cols[0].label);
+        const labels = [];
+        for (c = 1; c < dataj.cols.length; c++) {
+          if (dataj.cols[c].label != "") {
+            labels.push(dataj.cols[c].label);
+          }
+        }
+        console.log(labels);
+        const datasets = [];
+        for (i = 0; i < dataj.rows.length; i++) {
+          const series_data = [];
+          for (j = 1; j < dataj.rows[i].c.length; j++) {
+            if (dataj.rows[i].c[j] != null) {
+              if (dataj.rows[i].c[j].v != null) {
+                series_data.push(dataj.rows[i].c[j].v);
+              } else {
+                series_data.push(0);
+              }
+            }
+          }
+          var dataset = {
+            label: dataj.rows[i].c[0].v,
+            backgroundColor: colors,
+            borderColor: colors,
+            data: series_data
+          }
+          datasets.push(dataset);
+        }
+        console.log(datasets);
+
+        const chartdata = {
+          labels: labels,
+          datasets: datasets
+        };
+
+        var canvas = document.getElementById(chartId);
+        var setup = {
+          type: chartType,
+          data: chartdata,
+          options: {
+            plugins: {
+              title: {
+                display: true,
+                text: dataj.cols[0].label
+              }
+            },
+            responsive: true,
+          }
+        };
+        chart = new Chart(canvas, setup);
+      }
+
+      function handleQueryResponse3(response, chartId, chartType) {
+        var data = response.getDataTable();
+        var columns = data.getNumberOfColumns();
+        var rows = data.getNumberOfRows();
+        console.log(data.toJSON());
+
+        const colors = ['rgb(54, 162, 235)', 'rgb(255, 99, 132)', 'rgb(75, 192, 192)', 'rgb(255, 206, 86)', 'rgb(153, 102, 255)'];
+        dataj = JSON.parse(data.toJSON());
+        console.log(dataj.cols[0].label);
+        const labels = [];
+        for (c = 1; c < dataj.cols.length; c++) {
+          if (dataj.cols[c].label != "") {
+            labels.push(dataj.cols[c].label);
+          }
+        }
+        console.log(labels);
+        const datasets = [];
+        for (i = 0; i < dataj.rows.length; i++) {
+          const series_data = [];
+          for (j = 1; j < dataj.rows[i].c.length; j++) {
+            if (dataj.rows[i].c[j] != null) {
+              if (dataj.rows[i].c[j].v != null) {
+                series_data.push(dataj.rows[i].c[j].v);
+              } else {
+                series_data.push(0);
+              }
+            }
+          }
+          var dataset = {
+            label: dataj.rows[i].c[0].v,
+            backgroundColor: colors[i],
+            borderColor: colors[i],
+            data: series_data
+          }
+          datasets.push(dataset);
+        }
+        console.log(datasets);
+
+        const chartdata = {
+          labels: labels,
+          datasets: datasets
+        };
+
+        var canvas = document.getElementById(chartId);
+        var setup = {
+          type: 'bar', // Use 'bar' for vertical stacked bars
+          data: chartdata,
+          options: {
+            plugins: {
+              title: {
+                display: true,
+                text: dataj.cols[0].label
+              }
+            },
+            responsive: true,
+            indexAxis: 'x', // Set the index axis to 'x' for vertical chart
+            scales: {
+              x: {
+                stacked: true
+              },
+              y: {
+                stacked: true,
+                beginAtZero: true // Start y-axis from zero
+              }
+            }
+          }
+        };
+        chart = new Chart(canvas, setup);
+      }
+    </script>
+  </body>
 </html>

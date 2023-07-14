@@ -1,5 +1,5 @@
 html, body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Inter';
   font-weight: 400;
   color: #333;
 }
@@ -133,8 +133,7 @@ h5{
 
 .chart-container {
   /* Add your CSS styles for the chart container here */
-  width: 100%;
-  max-width: 800px;
+  width: 70%;
   padding-left: 60px;
   display: inline-block;
   /* Add other custom styles as needed */
@@ -142,11 +141,13 @@ h5{
 
 .return-box {
   padding: 30px;
+  min-width: 400px;
 }
 
 .return-wrapper {
   margin: 20px;
   width: calc(30%);
+  min-width: 400px;
   box-shadow: 0 0px 8px rgba(0, 0, 0, 0.1); /* Add the drop shadow effect */
   border-radius: 10px;
   align-items:right;
@@ -174,6 +175,14 @@ h5{
 }
 
 .returnContainer{
-  width: 1200px;
+  min-width: 400px;
   display: inline-block;
+}
+
+.content-container{
+  display: flex;
+}
+
+.project_metrics_class{
+  width: 30%;
 }

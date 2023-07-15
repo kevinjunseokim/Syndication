@@ -5,42 +5,78 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,500,600,700,800,900">
   </head>
 
   <body>
     <div id="app">
-      <h1>Real Estate Syndication Analyzer</h1>
-      <h3 style="padding-left: 60px;">PROJECT OVERVIEW</h3>
-      <div class="content-container">
-        <div id="chartContainer" class="chart-container">
-          {% include 'chart.html' %}
-          <div>
-            <canvas id="myChart1"></canvas>
-          </div>
-          <div>
-            <canvas id="myChart3"></canvas>
-          </div>
-        </div>
-        <div id="project_metrics" class="project_metrics_class">
-          <div id="returnContainer" class="returnContainer">
-            {% include 'returns.html' %}
-          </div>
-          <div id="returnContainer" class="returnContainer">
-            {% include 'stack.html' %}
-          </div>
-        </div>
-      </div>
-      <div id="returnContainer" class="returnContainer">
-        {% include 'investor.html' %}
-      </div>
-      <div id="formContainer">
-        {% include 'form.html' %}
-      </div>
-    </div>
+        <h2 style="padding-left: 160px; padding-top:20px; padding-bottom:40px; letter-spacing: 2px; font-size:15px;">SYNDICATION ANALYZER</h2>
+        <h1 style="padding-left: 160px;">
+          {% if request.form.get('name') == 'None' or not request.form.get('name') %}
+            250 Green Street
+          {% else %}
+            {{ request.form.get('name') }}
+          {% endif %}
+        </h1>
 
-    <div>
-      <canvas id="myChart2"></canvas>
-    </div>
+        <h2 style="font-weight:600; padding-top:20px; padding-left: 160px;">Project Returns</h2>
+        <div style="padding-left:100px;">{% include 'returns.html' %}</div>
+
+        <div>{% include 'chart.html' %}</div>
+
+        <div class="content-container" style="margin-top: 30px; padding-left:100px;">
+          <div class="return-wrapper">
+            <div class="box-border" style="width: 625px; margin-left: 50px;  height:85%;">
+              <h2 style="font-weight:600; margin-top:0px; margin-bottom:30px;">Income & Expenses</h2>
+              <div class="content-container">
+                <canvas id="myChart1" style="padding:15px;"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="return-wrapper">
+            <div class="box-border" style="width: 350px; margin-left: 50px; margin-left: 5px; height:85%;">
+              <h2 style="font-weight:600; margin-top:0px; margin-bottom:30px;">Investment Returns</h2>
+              <div id="returnContainer" class="returnContainer">
+                {% include 'investor.html' %}
+              </div>
+            </div>
+          </div>     
+        </div>
+
+        <div class="content-container" style="padding-left:100px;">
+          <div class="return-wrapper">
+            <div class="box-border" style="display: flex; width: 525px; height:85%; margin-left: 50px; margin-top: -5px">
+              <div style="width: 200px; margin-right: 50px;">
+                <h2 style="font-weight:600; margin-top:0px; margin-bottom:30px;">Capital Raise</h2>
+                <canvas id="myChart3" style="height: 500px;"></canvas>
+              </div>
+              <div style="width: 200px;">
+                {% include 'stack.html' %}
+              </div>
+            </div>
+          </div>
+
+          <div class="return-wrapper">
+            <div class="box-border" style="width: 450px; margin-left: 50px; margin-left: 5px; height:85%; margin-top: -5px"">
+              <h2 style="font-weight:600; margin-top:0px; margin-bottom:30px;">Partner Splits</h2>
+              <div id="returnContainer" class="returnContainer" style="display:flex;">
+                <div style="padding-bottom:15px;">
+                  <canvas id="myChart2" style="margin-left:15px;"></canvas>
+                </div>
+                <div style="width: 200px;">
+                  {% include 'splits.html' %}
+                </div>
+              </div>
+            </div>
+          </div>  
+        </div>
+        </div>
+        </div>
+          <div id="formContainer">
+            {% include 'form.html' %}
+          </div>
+      </div>
+    <script src="script.js"></script>
   </body>
 </html>

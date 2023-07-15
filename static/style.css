@@ -1,13 +1,10 @@
 html, body {
-  font-family: 'Inter';
-  font-weight: 400;
+  font-family: 'Lato';
   color: #333;
 }
 
-h1{
+h1 {
   font-size: 30px;
-  padding-top: 60px;
-  padding-left: 60px;
   font-weight: 700;
   color: #333;
   text-align: left;
@@ -15,34 +12,24 @@ h1{
 
 h2{
   font-size: 20px;
-  font-weight: 500;
-  padding-bottom: 10px;
+  font-weight: 400;
   color: #438EF2;
   text-align: left;
 }
 
-h3{
-  font-size: 20px;
-  font-weight: 500;
-  color: #438EF2;
-  margin: 0;
-}
-
 h4{
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 600;
   color: #333;
+  margin-top: -10px;
+  margin-bottom: -10px;
 }
 
 h5{
-  font-size: 15px;
+  margin-top: -10px;
+  font-size: 12px;
   font-weight: 400;
-  color: #333;
-}
-
-.form-container {
-  display: flex;
-  flex-wrap: wrap; /* Allow columns to wrap onto a new line */
+  color: #438EF2;
 }
 
 .column {
@@ -60,15 +47,6 @@ h5{
   border-radius: 10px;
 }
 
-.column h2 {
-  margin-top: 0;
-}
-
-.column label,
-.column input {
-  display: block;
-}
-
 .form_id {
   /* Modify the common styles for all labels with the class 'form_id' */
   font-size: 13px;
@@ -77,19 +55,7 @@ h5{
 }
 
 .entire_form{
-  margin: 60px;
-}
-
-.form-input {
-  border: none;
-  background: none;
-  padding: 0;
-  font-family: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-  color: inherit;
-  width: 100%;
-  outline: none;
+  margin-left: 60px;
 }
 
 #input_box {
@@ -98,18 +64,6 @@ h5{
   border: 1px solid #d2d2d2;
   border-radius: 5px;
   font-size: 15px;
-}
-
-.input-group {
-  position: relative;
-}
-
-.input-prefix {
-  position: absolute;
-  left: 5px;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 5px;
 }
 
 .submit_button {
@@ -131,49 +85,6 @@ h5{
   cursor: pointer;
 }
 
-.chart-container {
-  /* Add your CSS styles for the chart container here */
-  width: 70%;
-  padding-left: 60px;
-  display: inline-block;
-  /* Add other custom styles as needed */
-}
-
-.return-box {
-  padding: 30px;
-  min-width: 400px;
-}
-
-.return-wrapper {
-  margin: 20px;
-  width: calc(30%);
-  min-width: 400px;
-  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.1); /* Add the drop shadow effect */
-  border-radius: 10px;
-  align-items:right;
-}
-
-.metrics {
-  margin: 15px;
-  padding: 0px; /* Add padding values as needed */
-  width: calc(25%);
-  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.1); /* Add the drop shadow effect */
-  border-radius: 10px;
-}
-
-.line-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: -30px;
-}
-
-.equity-value {
-  margin-left: auto;
-  text-align: right;
-  margin-right: 10px;
-}
-
 .returnContainer{
   min-width: 400px;
   display: inline-block;
@@ -183,6 +94,32 @@ h5{
   display: flex;
 }
 
-.project_metrics_class{
-  width: 30%;
+.box-border{
+  padding: 25px;
+  width: 210px;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1); /* Add the drop shadow effect */
+  border-radius: 10px;
+  align-items:right;
+}
+
+.return-form{
+  margin-left: 50px;
+  display: flex;
+}
+
+.return-wrapper{
+  padding: 10px;
+}
+
+.align-left{
+  float: left;
+}
+
+.align-right{
+  float: right;
+}
+
+.in-between{
+  display: flex;
+  justify-content: space-between;
 }

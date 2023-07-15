@@ -33,25 +33,25 @@ h5{
 }
 
 .column {
-  flex: 1; /* Adjust the flex value as needed */
+  flex: 1;
   flex-shrink: 1;
-  padding: 20px; /* Add padding values as needed */
-  width: calc(25%); /* Adjust the width calculation to accommodate for padding */
-  box-sizing: border-box; /* Include padding in the width calculation */
+  padding: 20px;
+  width: calc(25%);
+  box-sizing: border-box;
   float:left;
 }
 
 .column-wrapper {
-  padding: 30px; /* Add padding values as needed */
-  box-shadow: 0 0px 8px rgba(0, 30, 15, 0.1); /* Add the drop shadow effect */
+  padding: 30px;
+  box-shadow: 0 0px 8px rgba(0, 30, 15, 0.1); 
   border-radius: 10px;
 }
 
 .form_id {
-  /* Modify the common styles for all labels with the class 'form_id' */
   font-size: 13px;
   margin-top: 20px;
   margin-bottom: 10px;
+  display: block;
 }
 
 .entire_form{
@@ -59,7 +59,7 @@ h5{
 }
 
 #input_box {
-  width: 90%;
+  width: 300px;
   padding: 7px;
   border: 1px solid #d2d2d2;
   border-radius: 5px;
@@ -67,21 +67,20 @@ h5{
 }
 
 .submit_button {
-  /* Apply desired styles to the button container */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 30px;
+  padding: 10px;
 }
 
 .submit_button input[type="submit"] {
-  /* Apply desired styles to the button */
   background-color: #008d93;
+  font-weight: 500;
   color: white;
-  padding: 20px 60px;
+  padding: 15px 25px;
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
+  border-radius: 10px;
+  font-size: 17px;
   cursor: pointer;
 }
 
@@ -97,7 +96,7 @@ h5{
 .box-border{
   padding: 25px;
   width: 210px;
-  box-shadow: 0 0px 10px rgba(0, 30, 15, 0.1); /* Add the drop shadow effect */
+  box-shadow: 0 0px 10px rgba(0, 30, 15, 0.1);
   border-radius: 10px;
   align-items:right;
 }
@@ -147,4 +146,58 @@ h5{
   margin: 0;
   border: none;
   border-top: 1.5px solid #f2f2f2;
+}
+
+.container{
+  width: 200px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  width: 60px;
+  height: 60px;
+  background: #008d93;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0px 10px rgba(0, 30, 15, 0.1);
+}
+
+.btn img {
+  filter: invert(100%);
+}
+
+.popup {
+  width: 330px;
+  bottom: 50px;
+  left: 60px;
+  background: white;
+  border-radius: 6px;
+  position: fixed;
+  top: 20%;
+  transform: translate(-200%, 50%) scale(0.1);
+  text-align: left;
+  visibility: hidden;
+  transition: transform 0.4s, visibility 0.4s;
+  overflow-y: scroll;
+  box-shadow: 0 0px 10px rgba(0, 30, 15, 0.1);
+  padding: 20px;
+}
+
+.open-popup {
+  visibility: visible;
+  left: 50px;
+  transform: translate(-1%, -20%) scale(1);
 }

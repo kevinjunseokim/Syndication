@@ -83,10 +83,32 @@
           </div>
         </div>
 
-          <div id="formContainer">
+        <div class="container">
+          <button type="submit" class="btn" onclick="togglePopup()">
+            <img src="https://www.svgrepo.com/show/80173/menu-symbol-of-three-parallel-lines.svg" alt="Form" style="width:25px;">
+          </button>
+          <div class="popup" id="popup">
             {% include 'form.html' %}
           </div>
-      </div>
-    <script src="script.js"></script>
+        </div>
+        <script>
+          let popup = document.getElementById("popup");
+        
+          function togglePopup() {
+            if (popup.classList.contains("open-popup")) {
+              closePopup();
+            } else {
+              openPopup();
+            }
+          }
+        
+          function openPopup() {
+            popup.classList.add("open-popup");
+          }
+        
+          function closePopup() {
+            popup.classList.remove("open-popup");
+          }
+        </script>
   </body>
 </html>

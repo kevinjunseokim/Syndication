@@ -5,7 +5,7 @@
     </head>
 
     <form method="POST" action="/">
-        <h2>Project Information</h2>
+        <h2 style="font-weight:600;">Project Information</h2>
             <label for="name" class="form_id">Name:</label>
             <input type="text" id="input_box" name="name" value="{% if not request.form.get('name') %}123 Main St{% else %}{{ request.form.get('name') }}{% endif %}">
             
@@ -18,7 +18,7 @@
             <label for="sample" class="form_id">Sample Investment:</label>
             <input type="number" id="input_box" name="sample" min="0" value="{{ request.form.get('sample') }}">
 
-        <h2>Shares</h2>
+        <h2 style="font-weight:600; padding-top: 20px;">Shares</h2>
             <label for="lp_split" class="form_id">LP Split (%):</label>
             <input type="number" id="input_box" name="lp_split" min="0" max="100" value="{{ request.form.get('lp_split') }}">
     
@@ -31,7 +31,7 @@
             <label for="hurdle" class="form_id">Hurdle Rate(%):</label>
             <input type="number" id="input_box" name="hurdle" min="0" max="100" step="0.01" value="{{ request.form.get('hurdle') }}">
 
-        <h2>Transaction Costs</h2>
+        <h2 style="font-weight:600; padding-top: 20px;">Transaction Costs</h2>
             <label for="earnest_money" class="form_id">Earnest Money Deposit:</label>
             <input type="number" id="input_box" name="earnest_money" min="0" value="{{ request.form.get('earnest_money') }}">
 
@@ -44,7 +44,7 @@
             <label for="capex" class="form_id">Rehab/CapEx:</label>
             <input type="number" id="input_box" name="capex" min="0" value="{{ request.form.get('capex') }}">
 
-        <h2>Mortgage</h2>
+        <h2 style="font-weight:600; padding-top: 20px;">Mortgage</h2>
             <label for="down_payment" class="form_id">Down Payment (%):</label>
             <input type="number" id="input_box" name="down_payment" min="0" max="100" value="{{ request.form.get('down_payment') }}">
     
@@ -57,7 +57,7 @@
             <label for="amor_months" class="form_id">Amortization (Months):</label>
             <input type="number" id="input_box" name="amor_months" min="0" value="{{ request.form.get('amor_months') }}">
 
-        <h2>Refinance</h2>
+        <h2 style="font-weight:600; padding-top: 20px;">Refinance</h2>
             <label for="ltv_refi" class="form_id">LTV (%):</label>
             <input type="number" id="input_box" name="ltv_refi" min="0" max="100" value="{{ request.form.get('ltv_refi') }}">
 
@@ -79,7 +79,7 @@
             <label for="cap_rate_refi" class="form_id">Cap Rate (%):</label>
             <input type="number" id="input_box" name="cap_rate_refi" min="0" max="100" step="0.01" value="{{ request.form.get('cap_rate_refi') }}">
 
-        <h2>Rent & Expenses</h2>
+        <h2 style="font-weight:600; padding-top: 20px;">Rent & Expenses</h2>
 
             <label for="rent" class="form_id">Total Monthly Rent:</label>
             <input type="number" id="input_box" min="0" name="rent" value="{{ request.form.get('rent') }}">
@@ -93,7 +93,7 @@
             <label for="annual_expenses" class="form_id">Total Monthly Expenses:</label>
             <input type="number" id="input_box" min="0" name="annual_expenses" value="{{ request.form.get('annual_expenses') }}">
 
-        <h2>Escalator</h2>
+        <h2 style="font-weight:600; padding-top: 20px;">Escalator</h2>
             <label for="rent_escalator_1" class="form_id">Year 1 Rent Escalator (%):</label>
             <input type="number" id="input_box" name="rent_escalator_1" min="0" max="100" value="{{ request.form.get('rent_escalator_1') }}">
 
@@ -106,7 +106,7 @@
             <label for="expenses_escalator" class="form_id">Expense Escalator (%):</label>
             <input type="number" id="input_box" name="expenses_escalator" min="0" max="100" value="{{ request.form.get('expenses_escalator') }}">
     
-        <h2>Sale</h2>
+        <h2 style="font-weight:600; padding-top: 20px;">Sale</h2>
             <label for="sale_year" class="form_id">Year:</label>
                 <select id="input_box" name="sale_year">
                     <option value="10">10</option>
@@ -123,10 +123,9 @@
             <label for="cap_rate_sale" class="form_id">Cap Rate (%):</label>
             <input type="number" id="input_box" name="cap_rate_sale" min="0" max="100" step="0.01" value="{{ request.form.get('cap_rate_sale') }}">
             
-            <div class="submit_button">
+            <div class="submit_button" style="padding-top: 50px;">
                 <input type="submit" value="Update">
             </div>
-            <button class="submit_button" onclick="closePopup()" style="height:20px;">Close</button>
         </div>
     </form>
 </html>

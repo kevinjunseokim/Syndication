@@ -70,16 +70,17 @@ h5{
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 30px;
+  padding: 10px;
 }
 
 .submit_button input[type="submit"] {
   background-color: #008d93;
+  font-weight: 500;
   color: white;
-  padding: 20px 60px;
+  padding: 15px 25px;
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
+  border-radius: 10px;
+  font-size: 17px;
   cursor: pointer;
 }
 
@@ -180,16 +181,16 @@ h5{
 
 .popup {
   width: 330px;
-  bottom: 10px;
-  left: 40px;
+  bottom: 50px;
+  left: 60px;
   background: white;
   border-radius: 6px;
   position: fixed;
   top: 20%;
-  transform: translate(-50%, 50%) scale(0.1);
+  transform: translate(-200%, 50%) scale(0.1);
   text-align: left;
   visibility: hidden;
-  transition: transform 0.4s, visibility 0.4s, left 0.4s;
+  transition: transform 0.4s, visibility 0.4s;
   overflow-y: scroll;
   box-shadow: 0 0px 10px rgba(0, 30, 15, 0.1);
   padding: 20px;

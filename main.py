@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request
 
 import os.path
-
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -195,8 +194,9 @@ def display_cells():
         project_returns = get_cell_value(sheet, 'DASHBOARD!L35:L38')
         investor_returns = get_cell_value(sheet, 'Investor Sample!G12:G16')
         sample_returns = get_cell_value(sheet, 'Investor Sample!Q6:Q11')
+        splits = get_cell_value(sheet, 'DASHBOARD!L4:L5')
 
-        return render_template('index.html', equity_stack=equity_stack, project_returns=project_returns, investor_returns=investor_returns, sample_returns=sample_returns)
+        return render_template('index.html', equity_stack=equity_stack, project_returns=project_returns, investor_returns=investor_returns, sample_returns=sample_returns, splits=splits)
     
     except Exception as e:
         error_message = str(e)

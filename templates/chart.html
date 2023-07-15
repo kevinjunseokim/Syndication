@@ -41,7 +41,6 @@
         var data = response.getDataTable();
         var columns = data.getNumberOfColumns();
         var rows = data.getNumberOfRows();
-        console.log(data.toJSON());
 
         const colors = ['rgb(54, 162, 235)', 'rgb(255, 99, 132)', 'rgb(75, 192, 192)', 'rgb(255, 206, 86)', 'rgb(153, 102, 255)'];
         dataj = JSON.parse(data.toJSON());
@@ -52,7 +51,6 @@
             labels.push(dataj.cols[c].label);
           }
         }
-        console.log(labels);
         const datasets = [];
         for (i = 0; i < dataj.rows.length; i++) {
           const series_data = [];
@@ -86,12 +84,25 @@
           data: chartdata,
           options: {
             plugins: {
+              legend: {
+                display: false // Remove legend
+              },
               title: {
-                display: true,
-                text: dataj.cols[0].label
+                display: false // Remove title
               }
             },
             responsive: true,
+            scales: {
+              x: {
+                grid: {
+                  display: false // Remove vertical grid lines
+                }
+              }
+              
+            },
+            font: {
+              family: 'Lato' // Specify the desired font family
+            }
           }
         };
         chart = new Chart(canvas, setup);
@@ -141,14 +152,19 @@
         };
 
         var canvas = document.getElementById(chartId);
+        canvas.style.height = '200px';
+        canvas.style.width = '200px';
         var setup = {
           type: chartType,
           data: chartdata,
           options: {
+            maintainAspectRatio: false,
             plugins: {
+              legend: {
+                display: false // Remove legend
+              },
               title: {
-                display: true,
-                text: dataj.cols[0].label
+                display: false // Remove title
               }
             },
             responsive: true,
@@ -201,23 +217,38 @@
         };
 
         var canvas = document.getElementById(chartId);
+        canvas.style.height = '100px';
+        canvas.style.width = '100px';
         var setup = {
           type: 'bar', // Use 'bar' for vertical stacked bars
           data: chartdata,
           options: {
+            maintainAspectRatio: true,
             plugins: {
               title: {
                 display: true,
                 text: dataj.cols[0].label
               }
             },
+            plugins: {
+              legend: {
+                display: false // Remove legend
+              },
+              title: {
+                display: false // Remove title
+              }
+            },
             responsive: true,
             indexAxis: 'x', // Set the index axis to 'x' for vertical chart
             scales: {
               x: {
-                stacked: true
+                stacked: true,
+                grid: {
+                  display: false
+                }
               },
               y: {
+                display: false,
                 stacked: true,
                 beginAtZero: true // Start y-axis from zero
               }

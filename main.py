@@ -195,8 +195,9 @@ def display_cells():
         investor_returns = get_cell_value(sheet, 'Investor Sample!G12:G16')
         sample_returns = get_cell_value(sheet, 'Investor Sample!Q6:Q11')
         splits = get_cell_value(sheet, 'DASHBOARD!L4:L5')
+        details = get_cell_value(sheet, 'P&L!D16:V78')
 
-        return render_template('index.html', equity_stack=equity_stack, project_returns=project_returns, investor_returns=investor_returns, sample_returns=sample_returns, splits=splits)
+        return render_template('index.html', equity_stack=equity_stack, project_returns=project_returns, investor_returns=investor_returns, sample_returns=sample_returns, splits=splits, details=details)
     
     except Exception as e:
         error_message = str(e)

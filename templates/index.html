@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,500,600,700,800,900">
   </head>
 
-  <body>
+  <body style="background-color:#FFFFFF">
     <div id="app">
-        <h2 style="padding-left: 160px; padding-top:20px; padding-bottom:40px; letter-spacing: 2px; font-size:15px;">SYNDICATION ANALYZER</h2>
+        <h2 style="padding-left: 160px; padding-top:20px; padding-bottom:40px; letter-spacing: 2px; font-size:15px; color: #c1e452;">SYNDICATION ANALYZER</h2>
         <h1 style="padding-left: 160px;">
           {% if request.form.get('name') == 'None' or not request.form.get('name') %}
             250 Green Street
@@ -48,7 +48,7 @@
           <div class="return-wrapper">
             <div class="box-border" style="display: flex; width: 525px; height:85%; margin-left: 50px; margin-top: -5px">
               <div style="width: 200px; margin-right: 50px;">
-                <h2 style="font-weight:600; margin-top:0px; margin-bottom:30px;">Capital Raise</h2>
+                <h2 style="font-weight:600; margin-top:0px; margin-bottom:30px;">Equity Stack</h2>
                 <canvas id="myChart3" style="height: 500px;"></canvas>
               </div>
               <div style="width: 200px;">
@@ -58,7 +58,7 @@
           </div>
 
           <div class="return-wrapper">
-            <div class="box-border" style="width: 450px; margin-left: 50px; margin-left: 5px; height:85%; margin-top: -5px"">
+            <div class="box-border" style="width: 450px; margin-left: 50px; margin-left: 5px; height:85%; margin-top: -5px">
               <h2 style="font-weight:600; margin-top:0px; margin-bottom:30px;">Partner Splits</h2>
               <div id="returnContainer" class="returnContainer" style="display:flex;">
                 <div style="padding-bottom:15px;">
@@ -69,10 +69,20 @@
                 </div>
               </div>
             </div>
-          </div>  
+          </div>
         </div>
+
+        <div class="content-container" style="padding-left:100px;">
+          <div class="return-wrapper">
+            <div class="box-border" style="display: flex; width: 1050px; height:85%; margin-left: 50px; margin-top: 5px">
+              <div style="width: 200px; margin-right: 50px;">
+                <h2 style="font-weight:600; margin-top:0px; margin-bottom:20px;">P&L</h2>
+                  {% include 'details.html' %}
+              </div>
+            </div>
+          </div>
         </div>
-        </div>
+
           <div id="formContainer">
             {% include 'form.html' %}
           </div>

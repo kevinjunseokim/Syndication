@@ -1,26 +1,26 @@
 html, body {
   font-family: 'Lato';
-  color: #333;
+  color: #2e5468;
 }
 
 h1 {
   font-size: 30px;
   font-weight: 700;
-  color: #333;
+  color: #2e5468;
   text-align: left;
 }
 
 h2{
   font-size: 20px;
   font-weight: 400;
-  color: #438EF2;
+  color: #008d93;
   text-align: left;
 }
 
 h4{
   font-size: 20px;
   font-weight: 600;
-  color: #333;
+  color: #2e5468;
   margin-top: -10px;
   margin-bottom: -10px;
 }
@@ -29,7 +29,7 @@ h5{
   margin-top: -10px;
   font-size: 12px;
   font-weight: 400;
-  color: #438EF2;
+  color: #008d93;
 }
 
 .column {
@@ -43,7 +43,7 @@ h5{
 
 .column-wrapper {
   padding: 30px; /* Add padding values as needed */
-  box-shadow: 0 0px 8px rgba(0, 0, 0, 0.1); /* Add the drop shadow effect */
+  box-shadow: 0 0px 8px rgba(0, 30, 15, 0.1); /* Add the drop shadow effect */
   border-radius: 10px;
 }
 
@@ -76,7 +76,7 @@ h5{
 
 .submit_button input[type="submit"] {
   /* Apply desired styles to the button */
-  background-color: #438EF2;
+  background-color: #008d93;
   color: white;
   padding: 20px 60px;
   border: none;
@@ -97,7 +97,7 @@ h5{
 .box-border{
   padding: 25px;
   width: 210px;
-  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1); /* Add the drop shadow effect */
+  box-shadow: 0 0px 10px rgba(0, 30, 15, 0.1); /* Add the drop shadow effect */
   border-radius: 10px;
   align-items:right;
 }
@@ -122,4 +122,29 @@ h5{
 .in-between{
   display: flex;
   justify-content: space-between;
+}
+
+.details2{
+  color: #008d93;
+  font-size: 15px;
+  width: 90px;
+  display: inline-block;
+  text-align: left;
+  padding-top: 10px;
+}
+
+.details{
+  color: #b0b0b0;
+  font-size: 15px;
+  width: 90px;
+  display: inline-block;
+  text-align: left;
+  padding-top: 10px;
+}
+
+.line {
+  width: 94%;
+  margin: 0;
+  border: none;
+  border-top: 1.5px solid #f2f2f2;
 }

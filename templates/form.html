@@ -5,160 +5,128 @@
     </head>
 
     <form method="POST" action="/">
-        <div class = 'entire_form'>
-            <div class="column">
-                <div class="column-wrapper">
-                    <h2>Project Information</h2>
-                        <label for="name" class="form_id">Name:</label>
-                        <input type="text" id="input_box" name="name" value="{% if not request.form.get('name') %}123 Main St{% else %}{{ request.form.get('name') }}{% endif %}">
-                        
-                        <label for="purchase_price" class="form_id">Purchase Price:</label>
-                        <input type="number" id="input_box" name="purchase_price" min="0" value="{{ request.form.get('purchase_price') }}">
-
-                        <label for="unit_count" class="form_id">Unit Count:</label>
-                        <input type="number" id="input_box" name="unit_count" min="0" value="{{ request.form.get('unit_count') }}">
-
-                        <label for="sample" class="form_id">Sample Investment:</label>
-                        <input type="number" id="input_box" name="sample" min="0" value="{{ request.form.get('sample') }}">
-                </div>
-            </div>
-
-            <div class="column">
-                <div class="column-wrapper">
-                    <h2>Shares</h2>
-                        <label for="lp_split" class="form_id">LP Split (%):</label>
-                        <input type="number" id="input_box" name="lp_split" min="0" max="100" value="{{ request.form.get('lp_split') }}">
-                
-                        <label for="asset_management_fee" class="form_id">Asset Management Fee (%):</label>
-                        <input type="number" id="input_box" name="asset_management_fee" min="0" max="100" step="0.01" value="{{ request.form.get('asset_management_fee') }}">
-
-                        <label for="preferred_return" class="form_id">Preferred Return (%):</label>
-                        <input type="number" id="input_box" name="preferred_return" min="0" max="100" step="0.01" value="{{ request.form.get('preferred_return') }}">
-
-                        <label for="hurdle" class="form_id">Hurdle Rate(%):</label>
-                        <input type="number" id="input_box" name="hurdle" min="0" max="100" step="0.01" value="{{ request.form.get('hurdle') }}">
-                </div>
-            </div>
-
-            <div class="column">
-                <div class="column-wrapper">
-                <h2>Transaction Costs</h2>
-                    <label for="earnest_money" class="form_id">Earnest Money Deposit:</label>
-                    <input type="number" id="input_box" name="earnest_money" min="0" value="{{ request.form.get('earnest_money') }}">
-
-                    <label for="acq_fee" class="form_id">Acquisition Fee (%):</label>
-                    <input type="number" id="input_box" name="acq_fee" min="0" max="100" step="0.01" value="{{ request.form.get('acq_fee') }}">
-
-                    <label for="closing_cost" class="form_id">Closing Costs (%):</label>
-                    <input type="number" id="input_box" name="closing_cost" min="0" max="100" step="0.01" value="{{ request.form.get('closing_cost') }}">
-
-                    <label for="capex" class="form_id">Rehab/CapEx:</label>
-                    <input type="number" id="input_box" name="capex" min="0" value="{{ request.form.get('capex') }}">
-                </div>
-            </div>
-
-            <div class="column">
-                <div class="column-wrapper">
-                <h2>Mortgage</h2>
-                    <label for="down_payment" class="form_id">Down Payment (%):</label>
-                    <input type="number" id="input_box" name="down_payment" min="0" max="100" value="{{ request.form.get('down_payment') }}">
+        <h2>Project Information</h2>
+            <label for="name" class="form_id">Name:</label>
+            <input type="text" id="input_box" name="name" value="{% if not request.form.get('name') %}123 Main St{% else %}{{ request.form.get('name') }}{% endif %}">
             
-                    <label for="rate" class="form_id">Rate (%):</label>
-                    <input type="number" id="input_box" name="rate" min="0" max="100" step="0.01" value="{{ request.form.get('rate') }}">
+            <label for="purchase_price" class="form_id">Purchase Price:</label>
+            <input type="number" id="input_box" name="purchase_price" min="0" value="{{ request.form.get('purchase_price') }}">
 
-                    <label for="io_months" class="form_id">Interest-Only Months:</label>
-                    <input type="number" id="input_box" name="io_months" min="0" value="{{ request.form.get('io_months') }}">
+            <label for="unit_count" class="form_id">Unit Count:</label>
+            <input type="number" id="input_box" name="unit_count" min="0" value="{{ request.form.get('unit_count') }}">
 
-                    <label for="amor_months" class="form_id">Amortization (Months):</label>
-                    <input type="number" id="input_box" name="amor_months" min="0" value="{{ request.form.get('amor_months') }}">
-                </div>
-            </div>
+            <label for="sample" class="form_id">Sample Investment:</label>
+            <input type="number" id="input_box" name="sample" min="0" value="{{ request.form.get('sample') }}">
 
-            <div class="column">
-                <div class="column-wrapper">
-                <h2>Refinance</h2>
-                    <label for="ltv_refi" class="form_id">LTV (%):</label>
-                    <input type="number" id="input_box" name="ltv_refi" min="0" max="100" value="{{ request.form.get('ltv_refi') }}">
+        <h2>Shares</h2>
+            <label for="lp_split" class="form_id">LP Split (%):</label>
+            <input type="number" id="input_box" name="lp_split" min="0" max="100" value="{{ request.form.get('lp_split') }}">
+    
+            <label for="asset_management_fee" class="form_id">Asset Management Fee (%):</label>
+            <input type="number" id="input_box" name="asset_management_fee" min="0" max="100" step="0.01" value="{{ request.form.get('asset_management_fee') }}">
 
-                    <label for="rate_refi" class="form_id">Rate (%):</label>
-                    <input type="number" id="input_box" name="rate_refi" min="0" max="100" step="0.01" value="{{ request.form.get('rate_refi') }}">
+            <label for="preferred_return" class="form_id">Preferred Return (%):</label>
+            <input type="number" id="input_box" name="preferred_return" min="0" max="100" step="0.01" value="{{ request.form.get('preferred_return') }}">
 
-                    <label for="refi_year" class="form_id">Year:</label>
-                        <select id="input_box" name="refi_year">
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select>
-            
-                    <label for="cap_rate_refi" class="form_id">Cap Rate (%):</label>
-                    <input type="number" id="input_box" name="cap_rate_refi" min="0" max="100" step="0.01" value="{{ request.form.get('cap_rate_refi') }}">
-                </div>
-            </div>
+            <label for="hurdle" class="form_id">Hurdle Rate(%):</label>
+            <input type="number" id="input_box" name="hurdle" min="0" max="100" step="0.01" value="{{ request.form.get('hurdle') }}">
 
-            <div class="column">
-                <div class="column-wrapper">
-                <h2>Rent & Expenses</h2>
+        <h2>Transaction Costs</h2>
+            <label for="earnest_money" class="form_id">Earnest Money Deposit:</label>
+            <input type="number" id="input_box" name="earnest_money" min="0" value="{{ request.form.get('earnest_money') }}">
 
-                    <label for="rent" class="form_id">Total Monthly Rent:</label>
-                    <input type="number" id="input_box" min="0" name="rent" value="{{ request.form.get('rent') }}">
-            
-                    <label for="vacancy" class="form_id">Vacancy (%):</label>
-                    <input type="number" id="input_box" min="0" max="100" name="vacancy" value="{{ request.form.get('vacancy') }}">
+            <label for="acq_fee" class="form_id">Acquisition Fee (%):</label>
+            <input type="number" id="input_box" name="acq_fee" min="0" max="100" step="0.01" value="{{ request.form.get('acq_fee') }}">
 
-                    <label for="other_income" class="form_id">Other Income:</label>
-                    <input type="number" id="input_box" min="0" name="other_income" value="{{ request.form.get('other_income') }}">
+            <label for="closing_cost" class="form_id">Closing Costs (%):</label>
+            <input type="number" id="input_box" name="closing_cost" min="0" max="100" step="0.01" value="{{ request.form.get('closing_cost') }}">
 
-                    <label for="annual_expenses" class="form_id">Total Monthly Expenses:</label>
-                    <input type="number" id="input_box" min="0" name="annual_expenses" value="{{ request.form.get('annual_expenses') }}">
-                </div>
-            </div>
+            <label for="capex" class="form_id">Rehab/CapEx:</label>
+            <input type="number" id="input_box" name="capex" min="0" value="{{ request.form.get('capex') }}">
 
-            <div class="column">
-                <div class="column-wrapper">
-                    <h2>Escalator</h2>
-                        <label for="rent_escalator_1" class="form_id">Year 1 Rent Escalator (%):</label>
-                        <input type="number" id="input_box" name="rent_escalator_1" min="0" max="100" value="{{ request.form.get('rent_escalator_1') }}">
+        <h2>Mortgage</h2>
+            <label for="down_payment" class="form_id">Down Payment (%):</label>
+            <input type="number" id="input_box" name="down_payment" min="0" max="100" value="{{ request.form.get('down_payment') }}">
+    
+            <label for="rate" class="form_id">Rate (%):</label>
+            <input type="number" id="input_box" name="rate" min="0" max="100" step="0.01" value="{{ request.form.get('rate') }}">
 
-                        <label for="rent_escalator_2" class="form_id">Year 2 Rent Escalator (%):</label>
-                        <input type="number" id="input_box" name="rent_escalator_2" min="0" max="100" value="{{ request.form.get('rent_escalator_2') }}">
+            <label for="io_months" class="form_id">Interest-Only Months:</label>
+            <input type="number" id="input_box" name="io_months" min="0" value="{{ request.form.get('io_months') }}">
 
-                        <label for="rent_escalator_3" class="form_id">Year 3+ Rent Escalator (%):</label>
-                        <input type="number" id="input_box" name="rent_escalator_3" min="0" max="100" value="{{ request.form.get('rent_escalator_3') }}">
-                
-                        <label for="expenses_escalator" class="form_id">Expense Escalator (%):</label>
-                        <input type="number" id="input_box" name="expenses_escalator" min="0" max="100" value="{{ request.form.get('expenses_escalator') }}">
-                </div>
-            </div>
+            <label for="amor_months" class="form_id">Amortization (Months):</label>
+            <input type="number" id="input_box" name="amor_months" min="0" value="{{ request.form.get('amor_months') }}">
 
-            <div class="column">
-                <div class="column-wrapper">
-                <h2>Sale</h2>
-                    <label for="sale_year" class="form_id">Year:</label>
-                        <select id="input_box" name="sale_year">
-                            <option value="10">10</option>
-                            <option value="9">9</option>
-                            <option value="8">8</option>
-                            <option value="7">7</option>
-                            <option value="6">6</option>
-                            <option value="5">5</option>
-                            <option value="4">4</option>
-                            <option value="3">3</option>
-                            <option value="2">2</option>
-                        </select>
-            
-                    <label for="cap_rate_sale" class="form_id">Cap Rate (%):</label>
-                    <input type="number" id="input_box" name="cap_rate_sale" min="0" max="100" step="0.01" value="{{ request.form.get('cap_rate_sale') }}">
-                </div>
-            </div>
+        <h2>Refinance</h2>
+            <label for="ltv_refi" class="form_id">LTV (%):</label>
+            <input type="number" id="input_box" name="ltv_refi" min="0" max="100" value="{{ request.form.get('ltv_refi') }}">
+
+            <label for="rate_refi" class="form_id">Rate (%):</label>
+            <input type="number" id="input_box" name="rate_refi" min="0" max="100" step="0.01" value="{{ request.form.get('rate_refi') }}">
+
+            <label for="refi_year" class="form_id">Year:</label>
+                <select id="input_box" name="refi_year">
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+    
+            <label for="cap_rate_refi" class="form_id">Cap Rate (%):</label>
+            <input type="number" id="input_box" name="cap_rate_refi" min="0" max="100" step="0.01" value="{{ request.form.get('cap_rate_refi') }}">
+
+        <h2>Rent & Expenses</h2>
+
+            <label for="rent" class="form_id">Total Monthly Rent:</label>
+            <input type="number" id="input_box" min="0" name="rent" value="{{ request.form.get('rent') }}">
+    
+            <label for="vacancy" class="form_id">Vacancy (%):</label>
+            <input type="number" id="input_box" min="0" max="100" name="vacancy" value="{{ request.form.get('vacancy') }}">
+
+            <label for="other_income" class="form_id">Other Income:</label>
+            <input type="number" id="input_box" min="0" name="other_income" value="{{ request.form.get('other_income') }}">
+
+            <label for="annual_expenses" class="form_id">Total Monthly Expenses:</label>
+            <input type="number" id="input_box" min="0" name="annual_expenses" value="{{ request.form.get('annual_expenses') }}">
+
+        <h2>Escalator</h2>
+            <label for="rent_escalator_1" class="form_id">Year 1 Rent Escalator (%):</label>
+            <input type="number" id="input_box" name="rent_escalator_1" min="0" max="100" value="{{ request.form.get('rent_escalator_1') }}">
+
+            <label for="rent_escalator_2" class="form_id">Year 2 Rent Escalator (%):</label>
+            <input type="number" id="input_box" name="rent_escalator_2" min="0" max="100" value="{{ request.form.get('rent_escalator_2') }}">
+
+            <label for="rent_escalator_3" class="form_id">Year 3+ Rent Escalator (%):</label>
+            <input type="number" id="input_box" name="rent_escalator_3" min="0" max="100" value="{{ request.form.get('rent_escalator_3') }}">
+    
+            <label for="expenses_escalator" class="form_id">Expense Escalator (%):</label>
+            <input type="number" id="input_box" name="expenses_escalator" min="0" max="100" value="{{ request.form.get('expenses_escalator') }}">
+    
+        <h2>Sale</h2>
+            <label for="sale_year" class="form_id">Year:</label>
+                <select id="input_box" name="sale_year">
+                    <option value="10">10</option>
+                    <option value="9">9</option>
+                    <option value="8">8</option>
+                    <option value="7">7</option>
+                    <option value="6">6</option>
+                    <option value="5">5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                </select>
+    
+            <label for="cap_rate_sale" class="form_id">Cap Rate (%):</label>
+            <input type="number" id="input_box" name="cap_rate_sale" min="0" max="100" step="0.01" value="{{ request.form.get('cap_rate_sale') }}">
             
             <div class="submit_button">
                 <input type="submit" value="Update">
             </div>
+            <button class="submit_button" onclick="closePopup()" style="height:20px;">Close</button>
         </div>
     </form>
 </html>

@@ -101,7 +101,7 @@
               
             },
             font: {
-              family: 'Lato' // Specify the desired font family
+              family: 'Lato'
             }
           }
         };
@@ -220,7 +220,7 @@
         canvas.style.height = '100px';
         canvas.style.width = '100px';
         var setup = {
-          type: 'bar', // Use 'bar' for vertical stacked bars
+          type: 'bar',
           data: chartdata,
           options: {
             maintainAspectRatio: true,
@@ -232,10 +232,10 @@
             },
             plugins: {
               legend: {
-                display: false // Remove legend
+                display: false
               },
               title: {
-                display: false // Remove title
+                display: false
               }
             },
             responsive: true,
@@ -250,7 +250,7 @@
               y: {
                 display: false,
                 stacked: true,
-                beginAtZero: true // Start y-axis from zero
+                beginAtZero: true
               }
             }
           }

@@ -9,6 +9,6 @@ COPY . /app/
 
 ENV FLASK_APP=main.py
 
-EXPOSE 5000
+EXPOSE 8080
 
-CMD ["flask", "run", "--host", "0.0.0.0"]
+CMD ["flask", "run", "--host", "0.0.0.0", "--port", "8080"]

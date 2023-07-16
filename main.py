@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from flask import Flask, render_template, request
 
 import os.path
@@ -197,7 +199,12 @@ def display_cells():
         splits = get_cell_value(sheet, 'DASHBOARD!L4:L5')
         details = get_cell_value(sheet, 'P&L!D16:V78')
 
-        return render_template('index.html', equity_stack=equity_stack, project_returns=project_returns, investor_returns=investor_returns, sample_returns=sample_returns, splits=splits, details=details)
+        return render_template('index.html', equity_stack=equity_stack, 
+                               project_returns=project_returns, 
+                               investor_returns=investor_returns, 
+                               sample_returns=sample_returns, 
+                               splits=splits, 
+                               details=details)
     
     except Exception as e:
         error_message = str(e)
